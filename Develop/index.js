@@ -158,6 +158,9 @@ function writeToFile(fileName, data) {
   });
 }
 
+// Function call to create README
+writeToFile(fileName, data);
+
 // TODO: Create a function to initialize app
 function init() {}
 
