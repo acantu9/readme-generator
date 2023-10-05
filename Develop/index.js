@@ -142,12 +142,7 @@ const questions = [
     },
 ];
 
-// Promts user to answer questions
-inquirer.prompt(questions).then((input) => {
-    console.log('User answers:', input.trim());
-})
-
-// TODO: Create a function to write README file
+// Function to write README file
 function writeToFile(fileName, data) {
     fs.writeFile(fileName, data, (err) => {
     if (err) {
@@ -161,8 +156,13 @@ function writeToFile(fileName, data) {
 // Function call to create README
 writeToFile(fileName, data);
 
-// TODO: Create a function to initialize app
-function init() {}
+// Function to initialize app
+function init() {
+    // Promts user to answer questions
+    inquirer.prompt(questions).then((input) => {
+        console.log('User answers:', input.trim());
+    })
+}
 
 // Function call to initialize app
 init();
