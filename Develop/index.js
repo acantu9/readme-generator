@@ -143,8 +143,8 @@ const questions = [
 ];
 
 // Promts user to answer questions
-inquirer.prompt(questions).then((answers) => {
-    console.log('User answers:', answers.trim());
+inquirer.prompt(questions).then((input) => {
+    console.log('User answers:', input.trim());
 })
 
 // TODO: Create a function to write README file
