@@ -1,11 +1,12 @@
 // Include inquirer package
 // Import fs
 // Define file
-// Define data
+// Define generatedHTML
 const inquirer = require('inquirer');
 const fs = require('fs');
 const fileName = 'README.md';
-const data = ({ project, description, installation, usage, contribution, test, license, username, email }) => {
+
+const generatedHTML = ({ project, description, installation, usage, contribution, test, license, username, email }) => {
     `<!DOCTYPE html>
     <html lang="en">
     <head>
@@ -46,7 +47,7 @@ const data = ({ project, description, installation, usage, contribution, test, l
     </html>`;
 };
 
-// Array of questions for user input
+// Questions for user input
 const questions = [
     {
         type: 'input',
@@ -153,15 +154,16 @@ function writeToFile(fileName, data) {
         console.log('README file created successfully!');
         }
     });
-}
+};
 
 // Function to initialize app
 function init() {
     // Promts user to answer questions
     inquirer.prompt(questions).then((input) => {
+        const readme = generatedHTML(input);
         console.log('User answers:', input.trim());
-    })
-}
+    });
+};
 
 // Function call to initialize app
 init();
