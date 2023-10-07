@@ -5,7 +5,6 @@
 const inquirer = require('inquirer');
 const fs = require('fs');
 const fileName = 'README.md';
-
 const data = ({ project, description, installation, usage, contribution, test, license, username, email }) => {
     `<!DOCTYPE html>
     <html lang="en">
@@ -45,7 +44,7 @@ const data = ({ project, description, installation, usage, contribution, test, l
     </header>
     </body>
     </html>`;
-}
+};
 
 // Array of questions for user input
 const questions = [
@@ -148,16 +147,13 @@ const questions = [
 // Function to write README file
 function writeToFile(fileName, data) {
     fs.writeFile(fileName, data, (err) => {
-    if (err) {
-      console.error(err);
-    } else {
-      console.log('README file created successfully!');
-    }
-  });
+        if (err) {
+        console.error(err);
+        } else {
+        console.log('README file created successfully!');
+        }
+    });
 }
-
-// Function call to create README
-writeToFile(fileName, data);
 
 // Function to initialize app
 function init() {
@@ -169,3 +165,6 @@ function init() {
 
 // Function call to initialize app
 init();
+
+// Function call to create README
+writeToFile(fileName, data);
