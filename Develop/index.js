@@ -47,7 +47,7 @@ const generatedHTML = ({ project, description, installation, usage, contribution
     </html>`;
 };
 
-// Questions for user input
+// Array of questions for user input
 const questions = [
     {
         type: 'input',
@@ -147,20 +147,18 @@ const questions = [
 
 // Function to write README file
 function writeToFile(fileName, data) {
-    fs.writeFile(fileName, data, (err) => {
-        if (err) {
-        console.error(err);
-        } else {
-        console.log('README file created successfully!');
-        }
-    });
+    
 };
 
 // Function to initialize app
 function init() {
     // Promts user to answer questions
-    inquirer.prompt(questions).then((input) => {
+    return inquirer.prompt(questions).then((input) => {
         const readme = generatedHTML(input);
+
+        fs.writeFile(fileName, readme, (err) => {
+            err ? console.log(err) : console.log('Successfully created index.html!');
+        });
         console.log('User answers:', input.trim());
     });
 };
