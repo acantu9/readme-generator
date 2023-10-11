@@ -1,7 +1,7 @@
 // Include inquirer package
 // Import fs
 // Define file
-// Define generatedHTML
+// Define generatedREADME
 const inquirer = require('inquirer');
 const fs = require('fs');
 const fileName = 'README.md';
