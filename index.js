@@ -145,24 +145,34 @@ const questions = [
 
 // Function to write README file
 function writeToFile(fileName, data) {
-    
+  // Use the built-in 'fs' module to write the README file to the current directory
+  fs.writeFile(fileName, data, (err) => {
+    // If there is an error in writing the file, log it
+    if (err) {
+      console.log(err);
+    } else {
+      // If the file was written successfully, log a success message
+      console.log('Successfully created ' + fileName + '!');
+    }
+  });
 };
 
 // Function to initialize app
 function init() {
-    // Promts user to answer questions
-    return inquirer.prompt(questions).then((input) => {
-        const readme = generatedREADME(input);
+  // Prompts user to answer questions
+  return inquirer.prompt(questions).then((input) => {
+    const readme = generatedREADME(input);
 
-        fs.writeFile(fileName, readme, (err) => {
-            err ? console.log(err) : console.log('Successfully created index.html!');
-        });
-        console.log('User answers:', input.trim());
+    fs.writeFile(fileName, readme, (err) => {
+      err ? console.log(err) : console.log('Successfully created index.html!');
     });
+
+    console.log('User answers:', input.trim());
+
+    // Call the writeToFile function after the user's input has been gathered
+    writeToFile(fileName, readme);
+  });
 };
 
 // Function call to initialize app
 init();
-
-// Function call to create README
-writeToFile(fileName, data);
