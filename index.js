@@ -169,11 +169,12 @@ function init() {
       data.push(input[question.name]);
     });
 
+    console.log('User answers:', input.trim());
+    
+    // Write README file with user inputs
     fs.writeFile(fileName, readme, (err) => {
       err ? console.log(err) : console.log('Successfully created index.html!');
     });
-
-    console.log('User answers:', input.trim());
 
     // Call the writeToFile function after the user's input has been gathered
     writeToFile(fileName, readme);
