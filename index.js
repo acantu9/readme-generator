@@ -1,5 +1,6 @@
 // Include inquirer package
 // Import fs
+// Import generateMarkdown.js
 // Define file
 // Define generatedREADME
 const inquirer = require('inquirer');
