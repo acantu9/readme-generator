@@ -14,7 +14,6 @@ function renderLicenseBadge(license) {
 function renderLicenseLink(license) {
   if (license) {
     // Return the license link based on the license value
-    // For example, you can use Markdown to generate a link
     return `[License](https://opensource.org/licenses/${license})`;
   } else {
     return '';
@@ -26,7 +25,6 @@ function renderLicenseLink(license) {
 function renderLicenseSection(license) {
   if (license) {
     // Return the license section based on the license value
-    // For example, you can use Markdown to generate a section
     return `## License
 
       This project is licensed under the [${license}](https://opensource.org/licenses/${license}) license.`;
@@ -63,6 +61,7 @@ function generateMarkdown(data) {
   ${data.usage}
 
   ${renderLicenseSection(data.license)}
+  ${renderLicenseLink(data.license)}
 
   ## Contributing
 
