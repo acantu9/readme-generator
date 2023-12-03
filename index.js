@@ -5,6 +5,7 @@
 const inquirer = require('inquirer');
 const fs = require('fs');
 const fileName = 'README.md';
+const data = [];
 
 const generatedREADME = ({ project, description, installation, usage, contribution, test, license, username, email }) => {
     `# ${project.trim()}
@@ -162,6 +163,11 @@ function init() {
   // Prompts user to answer questions
   return inquirer.prompt(questions).then((input) => {
     const readme = generatedREADME(input);
+
+    // Add each answer to the data array
+    questions.forEach((question) => {
+      data.push(input[question.name]);
+    });
 
     fs.writeFile(fileName, readme, (err) => {
       err ? console.log(err) : console.log('Successfully created index.html!');
